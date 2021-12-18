@@ -1,6 +1,9 @@
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserContext";
 import { login } from "./api";
 
-function LoginPage({ onLogin }) {
+function LoginPage() {
+  const { login: onLogin } = useContext(UserContext);
   const [loginState, setLoginState] = useState({
     error: null,
     loading: false,

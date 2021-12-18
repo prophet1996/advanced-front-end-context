@@ -1,21 +1,17 @@
-import { useState } from "react";
+import { useContext } from "react";
 import LoginPage from "../components/LoginPage";
 import MainPage from "../components/MainPage";
+import { UserContextProvider, UserContext } from "../context/UserContext";
 
-export default function Root() {
-  const [currentUser, setCurrentUser] = useState(null);
+function Root() {
+  const { user: currentUser } = useContext(UserContext);
+  return currentUser ? <MainPage /> : <LoginPage />;
+}
 
-  const handleLogin = (user) => {
-    setCurrentUser(user);
-  };
-
-  const handleLogout = () => {
-    setCurrentUser(null);
-  };
-
-  return currentUser ? (
-    <MainPage currentUser={currentUser} onLogout={handleLogout} />
-  ) : (
-    <LoginPage onLogin={handleLogin} />
+export default function RootWithProviders() {
+  return (
+    <UserContextProvider>
+      <Root />
+    </UserContextProvider>
   );
 }

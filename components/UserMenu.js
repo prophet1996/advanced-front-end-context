@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
-function UserMenu({ currentUser, onLogout }) {
+function UserMenu() {
   const [menuVisible, setMenuVisible] = useState(false);
   const avatarRef = useRef();
+  const { user: currentUser, logout: onLogout } = useContext(UserContext);
 
   useEffect(() => {
     document.addEventListener("click", hideMenu);

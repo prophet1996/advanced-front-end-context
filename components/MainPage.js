@@ -1,10 +1,10 @@
 import Header from "./Header";
 import MessageList from "./MessageList";
 
-const MainPage = ({ currentUser, onLogout }) => (
+const MainPage = () => (
   <main>
-    <Header currentUser={currentUser} onLogout={onLogout} />
-    <MessageList currentUser={currentUser} />
+    <Header />
+    <MessageList />
   </main>
 );
 

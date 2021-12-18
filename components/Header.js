@@ -1,9 +1,9 @@
 import UserMenu from "./UserMenu";
 
-const Header = ({ currentUser, onLogout }) => (
+const Header = () => (
   <header className="Header">
     <h2>MyMail</h2>
-    <UserMenu currentUser={currentUser} onLogout={onLogout} />
+    <UserMenu />
   </header>
 );
 
