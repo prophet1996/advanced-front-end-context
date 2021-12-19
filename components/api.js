@@ -43,6 +43,6 @@ export function fetchEmails() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(FAKE_EMAILS);
-    }, 300);
+    }, 3000);
   });
 }
